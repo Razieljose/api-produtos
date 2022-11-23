@@ -1,4 +1,4 @@
-package com.produtos.api.resources;
+package com.produtos.api.controllers;
 
 import com.produtos.api.entities.Produto;
 import com.produtos.api.repository.ProdutoRepository;
@@ -26,6 +26,7 @@ public class ProdutoController {
 
     @PostMapping("/produtos")
     public Produto salvaProduto(@RequestBody Produto produto) {
+
         return produtoRepository.save(produto);
     }
 
