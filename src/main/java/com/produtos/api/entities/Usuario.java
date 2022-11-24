@@ -28,6 +28,7 @@ public class Usuario {
     @Column
     @NotEmpty
     private String senha;
+
     @Column
     private boolean admin;
 
