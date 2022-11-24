@@ -1,6 +1,7 @@
 package com.produtos.api.impl;
 
 import com.produtos.api.entities.Usuario;
+import com.produtos.api.exception.SenhaInvalidaException;
 import com.produtos.api.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -26,6 +27,20 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
         return usuarioRepository.save(usuario);
     }
+
+    public UserDetails autenticar( Usuario usuario ){
+        UserDetails user = loadUserByUsername(usuario.getLogin());
+        boolean senhasBatem = encoder.matches( usuario.getSenha(), user.getPassword() );
+
+        if(senhasBatem){
+            return user;
+        }
+
+        throw new SenhaInvalidaException();
+    }
+
+
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
