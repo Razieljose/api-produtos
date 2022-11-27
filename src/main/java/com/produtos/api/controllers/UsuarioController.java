@@ -32,7 +32,7 @@ public class UsuarioController {
         usuario.setSenha(senhaCriptografada);
         return usuarioService.salvarUsuario(usuario);
     }
-
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/auth")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais){
         try{

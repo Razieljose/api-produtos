@@ -3,6 +3,7 @@ package com.produtos.api.controllers;
 import com.produtos.api.entities.Vendedor;
 import com.produtos.api.repository.VendedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class VendedorController {
     }
 
     @PostMapping("/vendedor")
+    @ResponseStatus(HttpStatus.CREATED)
     public Vendedor salvarVendedor(@RequestBody Vendedor vendedor) {
 
         return vendedorRepository.save(vendedor);

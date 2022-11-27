@@ -3,6 +3,7 @@ package com.produtos.api.controllers;
 import com.produtos.api.entities.Produto;
 import com.produtos.api.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class ProdutoController {
     public List<Produto> listarProdutoNome(@PathVariable(value = "nome") String nome) {
         return produtoRepository.findByNome(nome);
     }
-
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/produtos")
     public Produto salvaProduto(@RequestBody Produto produto) {
 
@@ -35,7 +36,7 @@ public class ProdutoController {
         produtoRepository.deleteById(id);
 
     }
-
+    @ResponseStatus(HttpStatus.CREATED)
     @PutMapping("/produtos")
     public Produto atualizaProduto(@RequestBody Produto produto) {
         return produtoRepository.save(produto);
