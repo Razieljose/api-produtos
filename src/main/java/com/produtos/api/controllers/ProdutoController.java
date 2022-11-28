@@ -24,7 +24,7 @@ public class ProdutoController {
     public List<Produto> listarProdutoNome(@PathVariable(value = "nome") String nome) {
         return produtoRepository.findByNome(nome);
     }
-    @ResponseStatus(HttpStatus.CREATED)
+
     @PostMapping("/produtos")
     public Produto salvaProduto(@RequestBody Produto produto) {
 

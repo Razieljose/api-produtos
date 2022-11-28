@@ -23,7 +23,7 @@ public class Vendedor {
     @Column
     @NotEmpty
     private String nome;
-    
+
     @Column
     @NotEmpty
     private String setor;

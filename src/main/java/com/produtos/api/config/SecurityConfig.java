@@ -35,13 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(usuarioService)
-                .passwordEncoder(passwordEncoder());
-    }
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()

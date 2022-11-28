@@ -20,15 +20,13 @@ public class Produto {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
-	@NotEmpty
+
 	private String nome;
 	
 	
 	private String descricao;
 	
-	@Column
-	@NotEmpty
+
 	private Long quantidade;
 
 }
