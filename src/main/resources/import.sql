@@ -1,4 +1,19 @@
-INSERT INTO tb_produto(nome,descricao,quantidade) VALUES ('Mouse Logitech','Mouse gamer sem fio', 55),('Galaxy S22','Smartphone', 77),('PS5', 'Video Game', 22);
+CREATE TABLE tb_usuario(
+    ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+    LOGIN VARCHAR(50) NOT NULL,
+    SENHA VARCHAR(255) NOT NULL,
+    ADMIN BOOL DEFAULT FALSE
+);
 
-INSERT INTO tb_vendedor(nome,setor) VALUES ('Wanderson','Venda Coletores'),('Marcola','Venda geral'),('Nelsinho', 'Vendas batéria');
+CREATE TABLE tb_produto (
+    ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(100),
+    DESCRICAO VARCHAR(255),
+    QUANTIDADE INTEGER
+);
 
+CREATE TABLE tb_vendedor(
+    ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(50),
+    SETOR VARCHAR(50)
+    );
