@@ -36,7 +36,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title("API Produtos")
-                .description("API de produtos com didatica para estudos")
+                .description("API de produtos com didática para estudos")
                 .version("1.0")
                 .contact(contact())
                 .build();
@@ -48,6 +48,7 @@ public class SwaggerConfig {
                 "raziel_jose@hotmail.com");
     }
     public ApiKey apiKey(){
+
         return new ApiKey("JWT", "Authorization", "header");
     }
 

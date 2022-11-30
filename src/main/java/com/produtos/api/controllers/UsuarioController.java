@@ -6,6 +6,8 @@ import com.produtos.api.entities.Usuario;
 import com.produtos.api.exception.SenhaInvalidaException;
 import com.produtos.api.impl.UsuarioServiceImpl;
 import com.produtos.api.security.jwt.JwtService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +21,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/api/usuario")
 @RequiredArgsConstructor
+@Api("Api de usuários")
 public class UsuarioController {
 
     private final UsuarioServiceImpl usuarioService;
@@ -27,6 +30,7 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Salvar um usuário")
     public Usuario salvar( @RequestBody @Valid Usuario usuario ){
         String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
         usuario.setSenha(senhaCriptografada);
@@ -34,6 +38,7 @@ public class UsuarioController {
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/auth")
+    @ApiOperation("Autenticar um usuário já existente")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais){
         try{
             Usuario usuario = Usuario.builder()
